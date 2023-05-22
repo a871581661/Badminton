@@ -6,17 +6,21 @@ from torch import nn
 
 from data_gen import train_loader, BATCH_SIZE, test_loader
 
-from model.test_Timenet import Model
+# from model.test_Timenet import Model
+from model.Informer import Model
 from test import acc_eval
+import configs
+
+
 
 
 
 #model ini
 seq_len=30
-e_layers=5
-top_k=5
-d_model=seq_len*2
-d_ff=seq_len
+e_layers=2
+top_k=3
+d_model=128
+d_ff=128
 num_kernels=3
 embed =63
 dropout=.1
@@ -38,7 +42,7 @@ frames_ctl_list = [20, 10, 5]
 
 for i in range(1, 3):
         net = Model(
-            seq_len, e_layers, top_k, d_model, d_ff, num_kernels, embed, dropout,num_class
+            configs
         )
 
         optimizer = optim.Adam(net.parameters(), lr=lr, weight_decay=0.01, eps=1e-10)
@@ -114,7 +118,10 @@ for i in range(1, 3):
                 ax[2].plot(range(len(train_acc_list)), train_acc_list)
                 plt.draw()
                 plt.pause(.001)
+                ax[0].cla()
+                ax[1].cla()
                 plt.cla()
+print('high_trainacc:{:.3f},high_testacc:{:.3f}'.format(max(train_acc_list),max(test_acc_list)))
         # torch.save(net, './train/res/f{}_lstm_layer{}.pt'.format(frame_ctl, i))
         # np.save('./train/res/f{}_layer{}_loss.npy'.format(frame_ctl, i), loss_list)
         # np.save('./train/res/f{}_layer{}acc_list.npy'.format(frame_ctl, i), acc_list)

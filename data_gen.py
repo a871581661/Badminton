@@ -7,8 +7,8 @@ from collections import Counter
 ############param init############
 BATCH_SIZE = 16
 # 1S = 30 FPS
-data_path=r'D:\智能运动\dataSet\data\train_no_h5.npy'
-test_data_path=r'D:\智能运动\dataSet\data\test_h5.npy'
+data_path=r'F:\WZU\shy\智能运动\coding\model\lstm_ac\train\22_9_30\train\total_data\train_no_h5.npy'
+test_data_path=r'F:\WZU\shy\智能运动\coding\model\lstm_ac\train\22_9_30\train\total_data\test_h5.npy'
 ############param init############
 
 class Data(Dataset):
