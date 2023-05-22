@@ -9,7 +9,11 @@ dropout=.1
 
 num_class=18
 
-
+task_name = 'classification'
+###################
+label_len=None
+pred_len=None
+####################
 #informer_config
 factor =5
 output_attention=False
@@ -19,3 +23,5 @@ enc_in=63
 activation='gelu'
 
 
+#Dlinear
+moving_avg =5

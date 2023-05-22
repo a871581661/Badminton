@@ -7,12 +7,16 @@ from torch import nn
 from data_gen import train_loader, BATCH_SIZE, test_loader
 
 # from model.test_Timenet import Model
-from model.Informer import Model
+# from model.Informer import Model
+# from model.DLinear import Model
+from model.Autoformer import Model
 from test import acc_eval
 import configs
 import os
 
 
+
+device = torch.device('cuda') if torch.cuda.is_available() else torch.device('cpu')
 
 
 #model ini
